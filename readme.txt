@@ -1,4 +1,4 @@
-/*
+/* 
  *  Copyright (C) 2013 Javier Martinez Baena
  *
  *  This file is part of enrol/idlist2.
@@ -22,25 +22,42 @@
 ENGLISH
 *******
 
-This plugin is designed to automate the process of enrollment of students when the teacher has prior information that uniquely identifies them. No need to know the "userid".
+This plugin is designed to automatize the enrollment of users, using a list of authorized students. The users are enrolled automatically if they are included in the list. 
 
-The teacher must define a field with which to verify if a student is allowed or not in the course. You must also provide a list of valid values ​​for that field. When students first enter the course (without being previously enrolled) will check if the value of the field defined by the teacher matches any of the values ​​from the list provided by the teacher. If so automatically enrolls.
+Most of the methods to enroll many users in moodle are based in the "userid" field. This plugin facilitates the enrollment of many users without knowing the "userid" field because the list is based on any of the users' fields.
 
-The field can be one of the standard fields moodle or one of the user profile fields (defined by the site administrator).
+In the plugin configuration, the teacher have to define (among other things):
 
-By introducing the list of allowed values​​, you can write more information than is strictly necessary. For example, suppose you have a list that looks like this (DNI is an identification number):
+1.- The field to be used for the validation, that is, one from the standard fields or even from the user profile (user defined fields).
+2.- List of users allowed to enrol the course. This list includes, for each user, the value of the previous field (among other information).
 
-    DNI           Name      Surnames
-    12121212X     Javier    Martinez Baena
-    32451423A     Antonio   Garrido Carrillo
-    X-345264-A    Joaquin   Fernandez Valdivia
-    ...
 
-If we admit in the course only to students whose "DNI" are on the list we have to create a new field for the user named "DNI". We copy that list in the plugin configuration (no need to remove names even if they are not used in verification). Since the list has more information than we need, what we will do is filter it and extract only the data that verify a regular expression (also configurable in the plugin). In this example, we can extract the "DNI" numbers without letters with this regular expression: [0-9][0-9][0-9][0-9][0-9]+ ie extract all those numbers with 5 or more digits (we consider that a "DNI" is a sequence that contains at least 5 consecutive digits).
+If this plugin is active, the first time a student enters into the course, the value of the student' selected field is compared with those in the list of users. If the corresponding value is found in the list, then the user is automatically enrolled. Otherwise, the student is not allowed to enroll into the course.
 
-Thus any student with a "DNI" that matches 12121212, 32451423 or 345264 will have access to the course. If the student defines his "DNI" with letters, this can also be filtered by applying the regular expression (this is another option of the plugin).
+For example, suppose you have a list of students who are allowed to enter our course (name, surname, email and age) like this:
 
-After configuring the plugin, if you went back to the settings you can see a list of the field values ​​obtained after filtering with regular expression. We also have a list of students who are enrolled in the course but do not appear in the list of authorized plugin.
+  Name      Surname          Email                       Age
+  Javier    Martinez Baena   jbaena@decsai.ugr.es        20
+  Jose      Garcia Garcia    josegarcia@domain.com       21
+  Antonio   Perez Perez      antonioperez@domain.com     24
+
+If you configure the plugin to use the email as the field for validation, only the students with one of the emails in the list can access the course.
+
+Note that when the list of authorized users is entered in the plugin configuration form, you can write a list as the one above, which also may include other information as the name, surname, age or even other fields that are not used. Obviously, we have to filter this values to compare only the selected field. In the plugin configuration you have to define a regular expression, used to select the values to be compared. In our example, the algorithm to find matches works as follows:
+
+- We extract values ​​from the list of valid users that match the regular expression.
+- We compare the "email" field of the user with each of the values obtained in previous step.
+
+Note that the regular expression must be compatible with the type of field you want to validate. For example, if we are going to validate emails, then the regular expression should be something like \b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b (obtained from http://www.regular-expressions.info/regexbuddy/email.html)
+
+Another option of the plugin configuration form is the checkbox "Filter user field". If actived, the value of the user field is also filtered (before matching) with the regular expression. Thus, we could even use just a part of the field.
+
+Note that we have to configure the plugin carefully, because this algorithm does not guarantee the validated user to be the one you included in the list. Depending on the field of validation and the regular expression, an user could be enrolled by mistake. 
+
+After configuring the plugin (saving changes), if you enter to the settings form again, you can see two lists:
+
+1.- The list of unauthorized users, that is, the enrolled users who are not in the authorized users according to current configuration. This could happen when users are enrolled using other methods.
+2.- The list of authorized values. These are all the values extracted from the list of authorized users, logically, using the regular expression. This list is usefull to test if the regular expression is working as desired.
 
 
 *****************
