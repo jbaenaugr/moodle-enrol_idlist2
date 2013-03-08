@@ -17,3 +17,4 @@ Installation
 Required Moodle version
 -----------------------
 Moodle 2.4
+
