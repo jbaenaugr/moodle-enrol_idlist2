@@ -1,0 +1,19 @@
+idlist2 Enrolment Moodle Plugin
+==================================
+
+Features
+--------
+
+This plugin is designed to automatize the enrollment of users, using a list of authorized students. The users are enrolled automatically if they are included in the list. 
+
+Most of the methods to enroll many users in moodle are based in the "userid" field. This plugin facilitates the enrollment of many users without knowing the "userid" field because the list is based on any of the users' fields.
+
+Installation
+------------
+
+1. Add the plugin into /enrol folder.
+2. Enable the enrolment plugin and set it up. It is quite similar to other enrolment plugins.
+
+Required Moodle version
+-----------------------
+Moodle 2.4
