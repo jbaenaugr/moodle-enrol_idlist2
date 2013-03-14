@@ -1,6 +1,7 @@
 /*
  *  Copyright (C) 2013 Javier Martinez Baena
  *                     Antonio Garrido Carrillo
+ *                     - University of Granada -
  *
  *  This file is part of enrol/idlist2.
  *   
