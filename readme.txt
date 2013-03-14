@@ -19,6 +19,10 @@
  *
  */
 
+This plugin is available:
+-> Moodle site: https://moodle.org/plugins/view.php?plugin=enrol_idlist2
+-> GitHub: https://github.com/javima/moodle-enrol_idlist2
+
 *******
 ENGLISH
 *******
