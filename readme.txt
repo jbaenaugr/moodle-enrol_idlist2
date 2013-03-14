@@ -1,5 +1,6 @@
 /* 
  *  Copyright (C) 2013 Javier Martinez Baena
+ *                     Antonio Garrido Carrillo
  *
  *  This file is part of enrol/idlist2.
  *   
@@ -61,9 +62,6 @@ After configuring the plugin (saving changes), if you enter to the settings form
 1.- The list of unauthorized users, that is, the enrolled users who are not in the authorized users according to current configuration. This could happen when users are enrolled using other methods.
 2.- The list of authorized values. These are all the values extracted from the list of authorized users, logically, using the regular expression. This list is usefull to test if the regular expression is working as desired.
 
-Acknowledgements:
-Special thanks to Antonio Garrido (University of Granada), who has contributed in many ways.
-
 *****************
 SPANISH / ESPAÑOL
 *****************
@@ -89,6 +87,3 @@ Si deseamos admitir en el curso sólo a los alumnos cuyo DNI esté en esa lista 
 De esta forma cualquier alumno que tenga un DNI que coincida con 12121212, 32451423 o 345264 tendrá acceso al curso. Si el alumno define su DNI también con letra, esta puede filtrarse también aplicándole la expresión regular (una opción del plugin).
 
 Una vez configurado el plugin, al entrar de nuevo en la configuración podemos ver un listado con los valores de los campos que se obtienen tras filtrar con la expresión regular. También tenemos un listado con los alumnos que están matriculados ne el curso pero que no aparecen en la lista de autorizados del plugin.
-
-Agradecimientos:
-A Antonio Garrido (Universidad de Granada) por sus múltiples aportaciones al proyecto.

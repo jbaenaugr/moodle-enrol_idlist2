@@ -1,6 +1,7 @@
 <?php
 /*
  *  Copyright (C) 2013 Javier Martinez Baena
+ *                     Antonio Garrido Carrillo
  *
  *  This file is part of enrol/idlist2.
  *   
@@ -24,8 +25,8 @@
  * 
  * @package    enrol
  * @subpackage idlist2
- * @copyright  2013 Javier Martinez Baena
- * @author     Javier Martinez Baena
+ * @copyright  2013 Javier Martinez Baena, Antonio Garrido Carrillo
+ * @author     Javier Martinez Baena, Antonio Garrido Carrillo
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
