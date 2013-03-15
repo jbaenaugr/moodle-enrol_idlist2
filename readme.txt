@@ -67,6 +67,8 @@ After configuring the plugin (saving changes), if you enter to the settings form
 1.- The list of unauthorized users, that is, the enrolled users who are not in the authorized users according to current configuration. This could happen when users are enrolled using other methods.
 2.- The list of authorized values. These are all the values extracted from the list of authorized users, logically, using the regular expression. This list is usefull to test if the regular expression is working as desired.
 
+Some parts of the code of this plugin are inspired or derived from other Moodle plugins under GPL license.
+
 *****************
 SPANISH / ESPAÑOL
 *****************
